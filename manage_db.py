@@ -33,12 +33,12 @@ def create_db():
 
 def update_db_session(meals):
     for meal in meals:
-            meals_to_db = Meal(title=meal["title"], description=meal["description"])
-            for choice in meal["choices"]:
-                meal_choice = MealChoice(title=choice["title"], price=choice["price"])
-                meals_to_db.choices.append(meal_choice)
-        
-            db.session.add(meals_to_db)
+        meals_to_db = Meal(title=meal["title"], description=meal["description"])
+        for choice in meal["choices"]:
+            meal_choice = MealChoice(title=choice["title"], price=choice["price"])
+            meals_to_db.choices.append(meal_choice)
+    
+        db.session.add(meals_to_db)
 
 
 if __name__ == '__main__':

@@ -3,15 +3,18 @@ from flask_admin import Admin, expose
 from flask_admin.contrib.sqla import ModelView
 from werkzeug.exceptions import HTTPException
 
-from model import Meal, MealChoice
+from models import Meal, MealChoice
 from app import app, db, ADMIN_LOGIN, ADMIN_PASSWORD
+
+
+HTTP_UNAUTHORIZED_CODE = 401
 
 
 class AuthException(HTTPException):
 
     def __init__(self, message):
         super().__init__(message, Response(
-            "Please refresh the page and enter login, password'", 401,
+            "Please refresh the page and enter login, password'", HTTP_UNAUTHORIZED_CODE,
             {'WWW-Authenticate': 'Basic realm="Login Required"'}))
 
 
