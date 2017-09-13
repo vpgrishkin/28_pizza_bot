@@ -3,7 +3,7 @@ from os import getenv
 import telebot
 from jinja2 import Template
 
-from model import Meal
+from models import Meal
 
 
 TOKEN = getenv('BOT_TOKEN')
