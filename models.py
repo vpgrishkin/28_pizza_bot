@@ -8,7 +8,7 @@ SHORT_STR_LENGTH = 50
 class Meal(db.Model):
     __tablename__ = "meals"
     id = db.Column(db.Integer, primary_key=True)
-    choices = db.relationship('MealChoice', backref = 'meal')
+    choices = db.relationship('MealChoice', backref = 'meal', lazy='joined')
     title = db.Column(db.String(SHORT_STR_LENGTH))
     description = db.Column(db.String(STANDART_STR_LENGTH))
 
